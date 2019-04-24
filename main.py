@@ -1,18 +1,18 @@
 from perceptron import Perceptron
 import numpy as np
 
-nill = [1, 1, 1, 0, 0, 1, 0, 1, 1]
-one = [0, 0, 1, 1, 0, 0, 0, 1, 0]
-two = [0, 1, 1, 0, 0, 0, 1, 0, 1]
+nill =  [1, 1, 1, 0, 0, 1, 0, 1, 1]
+one =   [0, 0, 1, 1, 0, 0, 0, 1, 0]
+two =   [0, 1, 1, 0, 0, 0, 1, 0, 1]
 three = [0, 1, 0, 1, 1, 0, 1, 0, 0]
-four = [1, 0, 1, 0, 1, 0, 0, 1, 0]
-five = [1, 1, 0, 0, 1, 0, 0, 1, 1]
-six = [0, 0, 0, 1, 1, 1, 0, 1, 1]
+four =  [1, 0, 1, 0, 1, 0, 0, 1, 0]
+five =  [1, 1, 0, 0, 1, 0, 0, 1, 1]
+six =   [0, 0, 0, 1, 1, 1, 0, 1, 1]
 seven = [0, 1, 0, 1, 0, 1, 0, 0, 0]
-eight = [1, 1, 1, 0, 1, 0, 1, 0, 0]
-nine = [1, 1, 1, 0, 1, 0, 1, 0, 0]
+eight = [1, 1, 1, 0, 1, 1, 0, 1, 1]
+nine =  [1, 1, 1, 0, 1, 0, 1, 0, 0]
 
-training_input_basic =[]
+training_input_basic = []
 training_input_basic.append(np.array(nill))
 training_input_basic.append(np.array(one))
 training_input_basic.append(np.array(two))
@@ -34,5 +34,9 @@ perceptron = Perceptron(9)
 
 perceptron.train(training_input, labels)
 print(perceptron.weights)
+
+print("input =", training_input_basic[9])
 for i in range(0, 10):
-    print(perceptron.predict(training_input[8], i), i, sep=' ')
+    print(i, perceptron.predict(training_input_basic[i], i)[0], sep=' ')
+
+print(perceptron.predict(training_input_basic[9], 9)[0])
